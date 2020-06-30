@@ -9,15 +9,21 @@
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var max = 100;
-var min = 1;
-// array dentro cui salvo i numeri random scelti dal computer
-var numeriComputer = [];
-// array in cui salvo i numeri scelti dall'utente
+var numeriRandom = [];
 var numeriUtente = [];
 
-// facciamo generare al computer 16 numeri casuali compresi tra 1 e 100 che salveremo in un array
 
-var numeriComputer = Math.floor(Math.random() * (max - min + 1)) + min;
+// genero numeri random
+while (numeriRandom.length < 16) {
+  //inserisco solo se il numero non è già presente nell'array
+  var numeroCasuale = generaNumeriComputer(1, 100);
 
-console.log(numeriComputer);
+    numeriRandom.push(numeroCasuale);
+}
+console.log("Numeri scelti dal computer:  " + numeriRandom);
+document.getElementById("numeri-random").innerHTML = "Numeri scelti dal computer: " + numeriRandom;
+
+// funzione che crea 16 numeri random dal computer
+function generaNumeriComputer(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
