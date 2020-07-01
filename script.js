@@ -28,10 +28,20 @@ document.getElementById('numeri-random').innerHTML= "Il computer ha scelto quest
 // funzione che crea 16 numeri random dal computer
 function generaNumeriComputer(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
-function controllaNumero (array, element) {
+// }creo una funzione che mi controlla se il numero è già stato scelto nell'array
 
+
+function presenteInArray(array, element) {
+  var i = 0;
+  var result = false;
+  while (i < array.length && result == false) {
+    if (array[i] == element) {
+      result = true;
+    }
+    i++;
+  }
+  return result;
 }
 
 
