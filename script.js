@@ -32,14 +32,14 @@ document.getElementById("numeri-random").innerHTML = numeriRandom;
 // l'utente inserisce un numero per 84 tentativi
 
 while (numeriUtente.length < possibilita && trovato == false) {
-  // chiedo un numero all'utente con un ciclo per verificare che i numeri rispettino il range
+  // chiedo un numero all'utente con un ciclo per verificare che i numeri siano dentro il range
 
   numeroUtente = parseInt(prompt("Inserisci un numero da 1 a 100"));
   richiediNumeroCorretto();
 
   if (presenteInArray(numeriUtente, numeroUtente) == false) {
     numeriUtente.push(numeroUtente);
-    // se il numero dell'utente è presente nelle numberBomb hai perso
+    // se il numero dell'utente è presente
     if (presenteInArray(numeriRandom, numeroUtente) == true) {
       console.log("partita finita");
       document.getElementById("messaggio").innerHTML = "La partita è finita, hai scelto un numero già presente!";
